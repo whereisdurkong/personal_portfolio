@@ -566,7 +566,7 @@ export default function ExperienceSection() {
                                                                 : "clamp(100px, 18vw, 180px)",
                                                         }}
                                                     >
-                                                        <img src={src} alt={`${company} photo ${j + 1}`} />
+                                                        <img src={src} alt={`${company}`} />
                                                         <div className="exp-gallery-num">
                                                             {String(j + 1).padStart(2, "0")}
                                                         </div>
