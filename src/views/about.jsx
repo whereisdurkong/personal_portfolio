@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Particles from "../components/Particles";
+
 import ColorBends from "../components/ColorBends";
 import ExperienceSection from "../components/Experiencesection";
 
@@ -77,89 +77,6 @@ const tools = [
     "Firebase", "Expo", "Supabase", "Snow Ticketing",
     "Fiber Optics", "NVR / DVR", "ELD Systems",
     "Remote Support", "Virtual Assist.",
-];
-
-const experience = [
-    {
-        company: "Lepanto Consolidated Mining Co.",
-        role: "Junior System Programmer",
-        period: "May 2025 – Present",
-        duration: "Current",
-        desc: "In my current role, I design and develop web-based systems that streamline and automate daily business processes. I primarily work with React.js, Node.js, and SQL Server to build efficient, scalable, and user-friendly applications tailored to organizational needs. I am also responsible for maintaining and improving existing systems to ensure they remain reliable, sustainable, and high-performing for end users. Beyond development, I provide technical support across hardware and infrastructure, including computers, printers, and network related concerns helping ensure smooth day-to-day operations.",
-        current: true,
-        index: "01",
-        images: ["/lp.jpg", "/lp1.jpg"],
-        bullets: [],
-        logo: "/Lepanto.png",
-    },
-    {
-        company: "ThoughtFocus",
-        role: "Software Support",
-        period: "Jan – May 2025",
-        duration: "5 mos",
-        desc: "Provided end-to-end technical support for Branch Automation Systems, ensuring secure, smooth, and efficient banking operations. Managed system configurations, maintained accurate customer signature and data records, and ensured reliable data storage and system performance to support daily banking processes with minimal downtime.",
-        index: "02",
-        images: [],
-        bullets: [],
-        logo: "/tf.jpg",
-    },
-    {
-        company: "ThoughtFocus",
-        role: "IT Helpdesk – Tier 1",
-        period: "Aug 2024 – Jan 2025",
-        duration: "6 mos",
-        desc: "Remote support for desktops, printers, peripherals. Managed Duo MFA, Active Directory, Snow ticketing.",
-        bullets: [
-            "Provided remote technical support for desktops, laptops, printers, fax machines, and other peripherals.",
-            "Managed Duo Multi-Factor Authentication (MFA), including user onboarding, activation, device enrollment, and troubleshooting.",
-            "Created, edited, and deactivated Duo user accounts and access policies in line with company security standards.",
-            "Administered Active Directory (AD) to manage user accounts, password resets, and group permissions.",
-            "Utilized the Snow Ticketing System to log, prioritize, and resolve technical incidents efficiently.",
-            "Supported end-users via remote tools, phone, and email to ensure minimal downtime and optimal productivity.",
-            "Documented resolutions and maintained accurate records of user requests and system changes.",
-        ],
-        index: "03",
-        images: [],
-        logo: "/tf.jpg",
-    },
-    {
-        company: "ThoughtFocus",
-        role: "Technical Support Associate",
-        period: "Mar – Aug 2024",
-        duration: "6 mos",
-        desc: "Inbound/outbound support via calls, email, chat. Configured J.J. Keller ELD systems for compliance.",
-        index: "04",
-        images: [],
-        bullets: [
-            "Provided troubleshooting support via inbound / outbound calls, emails, and live chat.",
-            "Remotely configured and assisted users with the Encompass Electronic Logging Device (ELD) application to ensure proper functionality and compliance.",
-            "Worked Remotely using Soti Remote for the drivers/truckers devices",
-        ],
-        logo: "/tf.jpg",
-    },
-    {
-        company: "Bitshares Labs Inc.",
-        role: "Junior Mobile Developer",
-        period: "May – Aug 2023",
-        duration: "4 mos",
-        desc: "Proposed and developed an on-boarding mobile application to monitor all of their new hires and intern students based on their performance and attendance.",
-        award: "Technical Excellence Award",
-        index: "05",
-        images: ["/bit.jpg", "/bit1.jpg"],
-        bullets: ["Received an award \"Technical Excellence Award\""],
-        logo: "/bitshares.jpg",
-    },
-    {
-        company: "JSTech Electronics & Services",
-        role: "Electronic Security Technician",
-        period: "Oct 2020 – Apr 2022",
-        duration: "1 yr 7 mos",
-        desc: "Installed, troubleshot, and maintained CCTV systems (IP and analog), including switches, NVRs, DVRs, fiber optics, and UTP cabling. Configured remote access systems for surveillance and handled satellite TV hardware installations. Served as an official Cignal TV Technician.",
-        index: "06",
-        images: ["/cctv.jpg", "/cctv1.jpg", "/cctv2.jpg"],
-        bullets: [],
-        logo: "/js.png",
-    },
 ];
 
 const disciplines = [
