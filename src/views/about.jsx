@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import ScrollStack, { ScrollStackItem } from "../components/ScrollStack";
 import Particles from "../components/Particles";
 import ColorBends from "../components/ColorBends";
 import ExperienceSection from "../components/Experiencesection";
