@@ -1,5 +1,4 @@
 import { useState } from "react";
-import PixelBlast from "../components/PixelBlast";
 import LightRays from "../components/LightRays";
 
 const filterCategories = ["All", "Web Development", "Video / Photo", "Mobile App Development"];
@@ -29,7 +28,7 @@ const projects = [
         image: "/bg-back.png",
         color: { bg: "#B2DFDB", text: "#00352E" },
         rot: 1.5,
-        liveLink: null, // set to null to hide button
+
         githubLink: "https://github.com/whereisdurkong/assetReliabilityMonitoringSystem.git",
         liveLink: "https://assetreliabilitymonitoringsystem.vercel.app/",
     },

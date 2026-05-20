@@ -708,7 +708,7 @@ export default function About() {
                                             </div>
                                             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
                                                 {logo && (
-                                                    <img src={logo} alt={company} style={{
+                                                    <img src={logo} alt={'hotdogs'} style={{
                                                         width: "28px", height: "28px", objectFit: "contain",
                                                         borderRadius: "6px", background: "rgba(255,255,255,0.06)",
                                                         padding: "3px", border: "0.5px solid rgba(255,255,255,0.1)", flexShrink: 0,
@@ -780,7 +780,7 @@ export default function About() {
                                                         onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.02)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; }}
                                                         onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"; }}
                                                     >
-                                                        <img src={src} alt={`${company} photo ${j + 1}`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                                                        <img src={src} alt={`hotdogs`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                                                         <div style={{
                                                             position: "absolute", bottom: "8px", right: "10px",
                                                             fontFamily: "var(--av-mono)", fontSize: "9px", color: "rgba(255,255,255,0.4)", letterSpacing: "0.08em",

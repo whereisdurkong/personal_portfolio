@@ -1,6 +1,5 @@
-import LightRays from "../components/LightRays";
+
 import PixelBlast from "../components/PixelBlast";
-import ScrollReveal from "../components/ScrollStack";
 import About from "./about";
 import Contact from "./contact";
 import Projects from "./projects";
