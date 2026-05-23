@@ -39,7 +39,7 @@ const projects = [
         tags: ["React", "Node.js", "SQL Server"],
         year: "2025",
         desc: "Multi-format brand film and social-cut series for product launch — 60s hero, 15s reels, thumbnail suite.",
-        image: "/bg-back.png",
+        image: "/cm.png",
         color: { bg: "#F8BBD0", text: "#3D001A" },
         rot: -1,
 
