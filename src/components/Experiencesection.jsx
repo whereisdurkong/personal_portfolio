@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ScrollStack, { ScrollStackItem } from "../components/ScrollStack";
 import Particles from "../components/Particles";
 
@@ -98,6 +98,8 @@ const experience = [
 export default function ExperienceSection() {
     const headerRef = useRef(null);
 
+    const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 600);
+
     /* ── Scroll reveal for header ── */
     useEffect(() => {
         const revealEls = document.querySelectorAll(".exp-sr");
@@ -116,6 +118,12 @@ export default function ExperienceSection() {
         );
         revealEls.forEach((el) => obs.observe(el));
         return () => obs.disconnect();
+    }, []);
+
+    useEffect(() => {
+        const handler = () => setIsMobile(window.innerWidth <= 600);
+        window.addEventListener("resize", handler);
+        return () => window.removeEventListener("resize", handler);
     }, []);
 
     return (
@@ -355,9 +363,9 @@ export default function ExperienceSection() {
                     ref={headerRef}
                     style={{
                         position: "sticky",
-                        top: 0,
+                        top: isMobile ? 45 : 0,
                         zIndex: 10,
-                        padding: "clamp(28px,5vw,72px) clamp(16px,5vw,80px) 24px",
+                        padding: "clamp(28px,5vw,72px) clamp(16px,5vw,80px) 30px",
                         borderBottom: "0.5px solid rgba(255,255,255,0.05)",
                         background: "#0a0a0a",
                     }}
@@ -397,188 +405,187 @@ export default function ExperienceSection() {
                 </div>
 
                 {/* ScrollStack */}
-                <ScrollStack itemStackDistance={14} baseScale={0.04} topOffset={110}>
-                    {experience.map(({ index, company, role, period, duration, desc, current, award, images, bullets, logo }, i) => (
-                        <ScrollStackItem key={role + i} itemClassName="av-exp-item">
-                            {/* Outer wrapper — NO minHeight, just padding for spacing */}
-                            <div style={{
-                                padding: "0 clamp(8px, 2vw, 40px)",
-                                paddingBottom: "clamp(16px, 3vw, 32px)",
-                                boxSizing: "border-box",
-                                width: "100%",
-                            }}>
-                                <div
-                                    className="exp-card"
-                                    style={{
-                                        "--exp-card-bg": i % 2 === 0 ? "#242424" : "#2e2e2e",
-                                        position: "sticky",
-                                        top: `${110 + 14 * i}px`,
-                                        zIndex: i + 1,
-                                    }}
-                                >
-                                    {/* ── Top: index + content + meta ── */}
-                                    <div className="exp-card-top">
-                                        {/* Left: all content */}
-                                        <div style={{ flex: 1, minWidth: 0 }}>
-                                            {/* Index */}
-                                            <div style={{
-                                                fontFamily: "'DM Mono', monospace",
-                                                fontSize: "11px",
-                                                color: "#888",
-                                                marginBottom: "16px",
-                                            }}>
-                                                {index}
-                                            </div>
+                <ScrollStack itemClassName="SS" itemStackDistance={14} baseScale={0.04} topOffset={isMobile ? 170 : 200}>                    {experience.map(({ index, company, role, period, duration, desc, current, award, images, bullets, logo }, i) => (
+                    <ScrollStackItem key={role + i} itemClassName="av-exp-item">
+                        {/* Outer wrapper — NO minHeight, just padding for spacing */}
+                        <div style={{
+                            padding: "0 clamp(8px, 2vw, 40px)",
+                            paddingBottom: "clamp(16px, 3vw, 32px)",
+                            boxSizing: "border-box",
+                            width: "100%",
+                        }}>
+                            <div
+                                className="exp-card"
+                                style={{
+                                    "--exp-card-bg": i % 2 === 0 ? "#242424" : "#2e2e2e",
+                                    position: "sticky",
+                                    top: `${110 + 14 * i}px`,
+                                    zIndex: i + 1,
+                                }}
+                            >
+                                {/* ── Top: index + content + meta ── */}
+                                <div className="exp-card-top">
+                                    {/* Left: all content */}
+                                    <div style={{ flex: 1, minWidth: 0 }}>
+                                        {/* Index */}
+                                        <div style={{
+                                            fontFamily: "'DM Mono', monospace",
+                                            fontSize: "11px",
+                                            color: "#888",
+                                            marginBottom: "16px",
+                                        }}>
+                                            {index}
+                                        </div>
 
-                                            {/* Role + badges */}
-                                            <div className="exp-role-row">
-                                                <span style={{
-                                                    fontFamily: "'DM Serif Display', serif",
-                                                    fontSize: "clamp(20px, 3.5vw, 40px)",
-                                                    color: "#f5f5f0",
-                                                    fontWeight: 400,
-                                                    lineHeight: 1.1,
-                                                }}>
-                                                    {role}
-                                                </span>
-                                                {current && (
-                                                    <span
-                                                        className="exp-live-tag"
-                                                        style={{
-                                                            fontFamily: "'DM Mono', monospace",
-                                                            fontSize: "9px",
-                                                            color: "#f5f5f0",
-                                                            letterSpacing: "0.1em",
-                                                            border: "0.5px solid rgba(255,255,255,0.3)",
-                                                            padding: "2px 8px",
-                                                            textTransform: "uppercase",
-                                                            flexShrink: 0,
-                                                        }}
-                                                    >
-                                                        Live
-                                                    </span>
-                                                )}
-                                                {award && (
-                                                    <span style={{
+                                        {/* Role + badges */}
+                                        <div className="exp-role-row">
+                                            <span style={{
+                                                fontFamily: "'DM Serif Display', serif",
+                                                fontSize: "clamp(20px, 3.5vw, 40px)",
+                                                color: "#f5f5f0",
+                                                fontWeight: 400,
+                                                lineHeight: 1.1,
+                                            }}>
+                                                {role}
+                                            </span>
+                                            {current && (
+                                                <span
+                                                    className="exp-live-tag"
+                                                    style={{
                                                         fontFamily: "'DM Mono', monospace",
                                                         fontSize: "9px",
-                                                        color: "#888",
-                                                        display: "flex",
-                                                        alignItems: "center",
-                                                        gap: "5px",
+                                                        color: "#f5f5f0",
+                                                        letterSpacing: "0.1em",
+                                                        border: "0.5px solid rgba(255,255,255,0.3)",
+                                                        padding: "2px 8px",
+                                                        textTransform: "uppercase",
                                                         flexShrink: 0,
-                                                    }}>
-                                                        <Icons.Cert /> {award}
-                                                    </span>
-                                                )}
-                                            </div>
-
-                                            {/* Company row */}
-                                            <div className="exp-company-row">
-                                                {logo && (
-                                                    <img
-                                                        src={logo}
-                                                        alt={company}
-                                                        style={{
-                                                            width: "26px",
-                                                            height: "26px",
-                                                            objectFit: "contain",
-                                                            borderRadius: "6px",
-                                                            background: "rgba(255,255,255,0.06)",
-                                                            padding: "3px",
-                                                            border: "0.5px solid rgba(255,255,255,0.1)",
-                                                            flexShrink: 0,
-                                                        }}
-                                                    />
-                                                )}
+                                                    }}
+                                                >
+                                                    Live
+                                                </span>
+                                            )}
+                                            {award && (
                                                 <span style={{
                                                     fontFamily: "'DM Mono', monospace",
-                                                    fontSize: "10px",
+                                                    fontSize: "9px",
                                                     color: "#888",
-                                                    textTransform: "uppercase",
-                                                    letterSpacing: "0.06em",
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    gap: "5px",
+                                                    flexShrink: 0,
                                                 }}>
-                                                    {company}
+                                                    <Icons.Cert /> {award}
                                                 </span>
-                                            </div>
-
-                                            {/* Description */}
-                                            <p className="exp-desc">{desc}</p>
-
-                                            {/* Bullets */}
-                                            {bullets?.length > 0 && (
-                                                <ul className="exp-bullets">
-                                                    {bullets.map((b, j) => (
-                                                        <li key={j} className="exp-bullet">
-                                                            <span className="exp-bullet-dot" />
-                                                            {b}
-                                                        </li>
-                                                    ))}
-                                                </ul>
                                             )}
                                         </div>
 
-                                        {/* Right: period + duration */}
-                                        <div className="exp-meta">
-                                            <span style={{
-                                                fontFamily: "'DM Mono', monospace",
-                                                fontSize: "11px",
-                                                color: "#888",
-                                                whiteSpace: "nowrap",
-                                            }}>
-                                                {period}
-                                            </span>
+                                        {/* Company row */}
+                                        <div className="exp-company-row">
+                                            {logo && (
+                                                <img
+                                                    src={logo}
+                                                    alt={company}
+                                                    style={{
+                                                        width: "26px",
+                                                        height: "26px",
+                                                        objectFit: "contain",
+                                                        borderRadius: "6px",
+                                                        background: "rgba(255,255,255,0.06)",
+                                                        padding: "3px",
+                                                        border: "0.5px solid rgba(255,255,255,0.1)",
+                                                        flexShrink: 0,
+                                                    }}
+                                                />
+                                            )}
                                             <span style={{
                                                 fontFamily: "'DM Mono', monospace",
                                                 fontSize: "10px",
-                                                color: "rgba(255,255,255,0.2)",
-                                                whiteSpace: "nowrap",
+                                                color: "#888",
+                                                textTransform: "uppercase",
+                                                letterSpacing: "0.06em",
                                             }}>
-                                                {duration}
+                                                {company}
                                             </span>
                                         </div>
+
+                                        {/* Description */}
+                                        <p className="exp-desc">{desc}</p>
+
+                                        {/* Bullets */}
+                                        {bullets?.length > 0 && (
+                                            <ul className="exp-bullets">
+                                                {bullets.map((b, j) => (
+                                                    <li key={j} className="exp-bullet">
+                                                        <span className="exp-bullet-dot" />
+                                                        {b}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
                                     </div>
 
-                                    {/* ── Gallery ── */}
-                                    {images?.length > 0 && (
-                                        <div>
-                                            <div className="exp-gallery-label">
-                                                Gallery · {images.length} photo{images.length > 1 ? "s" : ""}
-                                            </div>
-                                            <div
-                                                className="exp-gallery-grid"
-                                                style={{
-                                                    gridTemplateColumns:
-                                                        images.length === 1
-                                                            ? "1fr"
-                                                            : images.length === 2
-                                                                ? "1fr 1fr"
-                                                                : "repeat(3, 1fr)",
-                                                }}
-                                            >
-                                                {images.map((src, j) => (
-                                                    <div
-                                                        key={j}
-                                                        className="exp-gallery-img-wrap"
-                                                        style={{
-                                                            height: images.length === 1
-                                                                ? "clamp(140px, 28vw, 260px)"
-                                                                : "clamp(100px, 18vw, 180px)",
-                                                        }}
-                                                    >
-                                                        <img src={src} alt={`${company}`} />
-                                                        <div className="exp-gallery-num">
-                                                            {String(j + 1).padStart(2, "0")}
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    )}
+                                    {/* Right: period + duration */}
+                                    <div className="exp-meta">
+                                        <span style={{
+                                            fontFamily: "'DM Mono', monospace",
+                                            fontSize: "11px",
+                                            color: "#888",
+                                            whiteSpace: "nowrap",
+                                        }}>
+                                            {period}
+                                        </span>
+                                        <span style={{
+                                            fontFamily: "'DM Mono', monospace",
+                                            fontSize: "10px",
+                                            color: "rgba(255,255,255,0.2)",
+                                            whiteSpace: "nowrap",
+                                        }}>
+                                            {duration}
+                                        </span>
+                                    </div>
                                 </div>
+
+                                {/* ── Gallery ── */}
+                                {images?.length > 0 && (
+                                    <div>
+                                        <div className="exp-gallery-label">
+                                            Gallery · {images.length} photo{images.length > 1 ? "s" : ""}
+                                        </div>
+                                        <div
+                                            className="exp-gallery-grid"
+                                            style={{
+                                                gridTemplateColumns:
+                                                    images.length === 1
+                                                        ? "1fr"
+                                                        : images.length === 2
+                                                            ? "1fr 1fr"
+                                                            : "repeat(3, 1fr)",
+                                            }}
+                                        >
+                                            {images.map((src, j) => (
+                                                <div
+                                                    key={j}
+                                                    className="exp-gallery-img-wrap"
+                                                    style={{
+                                                        height: images.length === 1
+                                                            ? "clamp(140px, 28vw, 260px)"
+                                                            : "clamp(100px, 18vw, 180px)",
+                                                    }}
+                                                >
+                                                    <img src={src} alt={`${company}`} />
+                                                    <div className="exp-gallery-num">
+                                                        {String(j + 1).padStart(2, "0")}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                             </div>
-                        </ScrollStackItem>
-                    ))}
+                        </div>
+                    </ScrollStackItem>
+                ))}
                 </ScrollStack>
             </section>
         </>

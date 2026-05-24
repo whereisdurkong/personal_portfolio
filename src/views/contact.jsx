@@ -1,8 +1,8 @@
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 
 const contacts = [
-    { Icon: Mail, label: "Email", value: "adrian@email.com" },
-    { Icon: Phone, label: "Phone", value: "+63 912 345 6789" },
+    { Icon: Mail, label: "Email", value: "venturaadrian999@email.com" },
+    { Icon: Phone, label: "Phone", value: "+63 563 365 086" },
     { Icon: MapPin, label: "Location", value: "Baguio City, Philippines" },
 ];
 
