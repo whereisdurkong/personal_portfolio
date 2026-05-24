@@ -97,7 +97,7 @@ const experience = [
 
 export default function ExperienceSection() {
     const headerRef = useRef(null);
-
+    const [modalImg, setModalImg] = useState(null);
     const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 600);
 
     /* ── Scroll reveal for header ── */
@@ -336,6 +336,10 @@ export default function ExperienceSection() {
                         padding: clamp(20px, 3vw, 40px);
                     }
                 }
+                    @keyframes exp-modalIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
             `}</style>
 
             <section style={{
@@ -572,6 +576,7 @@ export default function ExperienceSection() {
                                                             ? "clamp(140px, 28vw, 260px)"
                                                             : "clamp(100px, 18vw, 180px)",
                                                     }}
+                                                    onClick={() => setModalImg(src)}
                                                 >
                                                     <img src={src} alt={`${company}`} />
                                                     <div className="exp-gallery-num">
@@ -588,6 +593,43 @@ export default function ExperienceSection() {
                 ))}
                 </ScrollStack>
             </section>
+            {modalImg && (
+                <div
+                    onClick={() => setModalImg(null)}
+                    style={{
+                        position: "fixed", inset: 0, zIndex: 9999,
+                        background: "rgba(0,0,0,0.85)",
+                        display: "flex", alignItems: "center",
+                        justifyContent: "center", padding: "24px",
+                        cursor: "zoom-out",
+                    }}
+                >
+                    <button
+                        onClick={() => setModalImg(null)}
+                        style={{
+                            position: "fixed", top: "20px", right: "24px",
+                            background: "none",
+                            border: "0.5px solid rgba(255,255,255,0.3)",
+                            color: "#f5f5f0", fontFamily: "'DM Mono', monospace",
+                            fontSize: "11px", letterSpacing: "0.1em",
+                            padding: "6px 14px", cursor: "pointer",
+                            textTransform: "uppercase",
+                        }}
+                    >Close</button>
+                    <img
+                        src={modalImg}
+                        alt="Enlarged view"
+                        onClick={(e) => e.stopPropagation()}
+                        style={{
+                            maxWidth: "90vw", maxHeight: "85vh",
+                            objectFit: "contain", borderRadius: "12px",
+                            border: "0.5px solid rgba(255,255,255,0.1)",
+                            cursor: "default",
+                            animation: "exp-modalIn 0.2s ease",
+                        }}
+                    />
+                </div>
+            )}
         </>
     );
 }
