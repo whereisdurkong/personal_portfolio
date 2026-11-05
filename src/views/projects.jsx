@@ -15,8 +15,8 @@ const projects = [
         image: "/hd.jpg",
         color: { bg: "#FFF176", text: "#3D3000" },
         rot: -2,
-        liveLink: "https://ithd-supabase.vercel.app/",
-        githubLink: "https://github.com/whereisdurkong/LMD-HelpdeskSystem.git", // ← replace with actual
+        liveLink: "https://canyoufixit.vercel.app/",
+        githubLink: "https://github.com/whereisdurkong/ITHD_FE", // ← replace with actual
     },
     {
         id: "02",
@@ -70,6 +70,20 @@ const projects = [
         rot: 2.2,
         liveLink: 'https://drive.google.com/file/d/1cbsjvNjmaoCgHVU1_57jwsxl2I_0cIFz/view?usp=sharing',
         githubLink: null,
+    },
+    {
+        id: "05",
+        title: "Clothing Line E-commerce",
+        category: "Web Development",
+        tags: ["React", "Node.js", "SQL Server", "Supabase"],
+        year: "2026",
+        desc: "Developed a clothing line e-commerce system using React.js and Node.js, featuring a landing page, online ordering functionality, and an order tracking system for managing customer purchases.",
+        featured: true,
+        image: "/wyf.png",
+        color: { bg: "#76dfff", text: "#00313d" },
+        rot: -2,
+        liveLink: "https://whereyoufromhommie.vercel.app/",
+        githubLink: "https://github.com/whereisdurkong/WYF_FE", // ← replace with actual
     },
 ];
 
