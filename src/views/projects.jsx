@@ -83,7 +83,7 @@ const projects = [
         color: { bg: "#76dfff", text: "#00313d" },
         rot: -2,
         liveLink: "https://whereyoufromhommie.vercel.app/",
-        githubLink: "https://github.com/whereisdurkong/WYF_FE", // ← replace with actual
+        githubLink: "https://github.com/whereisdurkong/WYF_FE", 
     },
      {
         id: "06",
@@ -95,9 +95,9 @@ const projects = [
         featured: true,
         image: "/template-react.png",
         color: { bg: "#A8D120", text: "#00313d" },
-        rot: -2,
+        rot: 2.2,
         liveLink: "https://adrian-react-template.vercel.app/",
-        githubLink: "https://github.com/whereisdurkong/adrian_react_template", // ← replace with actual
+        githubLink: "https://github.com/whereisdurkong/adrian_react_template", 
     },
 ];
 
