@@ -85,6 +85,20 @@ const projects = [
         liveLink: "https://whereyoufromhommie.vercel.app/",
         githubLink: "https://github.com/whereisdurkong/WYF_FE", // ← replace with actual
     },
+     {
+        id: "06",
+        title: "Vite + React JS Template",
+        category: "Web Development",
+        tags: ["React", "Node.js", "SQL Server", "Supabase"],
+        year: "2026",
+        desc: "React and Vite JS Front end template with costumized components.",
+        featured: true,
+        image: "/template-react.png",
+        color: { bg: "#A8D120", text: "#00313d" },
+        rot: -2,
+        liveLink: "https://adrian-react-template.vercel.app/",
+        githubLink: "https://github.com/whereisdurkong/adrian_react_template", // ← replace with actual
+    },
 ];
 
 // Icon components using inline SVG
